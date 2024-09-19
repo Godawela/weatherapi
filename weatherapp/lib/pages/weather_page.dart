@@ -43,7 +43,7 @@ switch (mainCondition. toLowerCase()) {
   case 'fog':
   case 'few clouds':
   case 'overcast clouds':
-
+  case 'broken clouds':
     return 'assets/cloud.json';
   case 'rain':
   case 'drizzle':
@@ -75,6 +75,11 @@ switch (mainCondition. toLowerCase()) {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+             Icon(
+                Icons.location_on,
+                color: const Color.fromARGB(255, 240, 246, 240),
+                size: 60,
+            ),
             // City name
             Text(_weather?.cityName ?? "Loading...",
             style: TextStyle(color: Colors.white,fontSize: 30,),  // Set font color to white
