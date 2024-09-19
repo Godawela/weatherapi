@@ -27,13 +27,15 @@ Future<String> getCurrentCity() async {
 // get permission from user
 LocationPermission permission = await Geolocator.checkPermission();
 if (permission == LocationPermission.denied) {
-permission = await Geolocator. requestPermission();
+  permission = await Geolocator.requestPermission();
+  print('Permission status: $permission');
 }
 
 // fetch the current location
 Position position = await Geolocator.getCurrentPosition(
-    desiredAccuracy: LocationAccuracy.high);
-
+        locationSettings: const LocationSettings(accuracy: LocationAccuracy.high),
+);
+print('Position: ${position.latitude}, ${position.longitude}');
 // convert the location into a list of placemark objects
 List<Placemark> placemarks =
 await placemarkFromCoordinates(position. latitude, position. longitude);

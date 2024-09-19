@@ -12,7 +12,7 @@ class Weathermodel {
     factory Weathermodel.fromJson (Map<String, dynamic> json){
       return Weathermodel(
         cityName: json['name'],
-        temperature: json['main']['temp'] - 273.15,
+        temperature: json['main']['temp'].toDouble(),
         mainCondition: json['weather'][0]['description']
       );
     }
